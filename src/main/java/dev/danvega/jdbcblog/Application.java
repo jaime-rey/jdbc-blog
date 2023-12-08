@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
+
 import org.apache.logging.log4j.Logger;
 
 @SpringBootApplication
@@ -36,6 +38,10 @@ public class Application {
                 log.info(post);
 
             }
+
+            Optional<Post> bySlugIgnoreCase = repository.findBySlugIgnoreCase("hello-world");
+            log.error(bySlugIgnoreCase);
+
         };
     }
 
